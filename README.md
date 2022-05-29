@@ -1,5 +1,4 @@
 # ERC721p
-Proteccd ERC721
 
 ## ERC721p - An update to implement backup / cold wallet addresses to recover NFTs using specified backup addresses.
 This is a simple implementation for a specified address to be able to transfer an NFT without actually holding or owning the NFT. This allows for users who have been hacked, phished or otherwise scammed / lost their NFT / lost access to their wallet to be able to get their assets back using a secure backup address.
