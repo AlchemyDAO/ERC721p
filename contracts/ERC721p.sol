@@ -447,10 +447,14 @@ contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, ERC721Holder {
     function changeRecoveryAddress(uint256 tokenId, address newRecoveryAddress)
         external
     {
-        require(
-            msg.sender == recoveryAddressMapping[tokenId],
-            "only recovery address"
-        );
+        if (recoveryAddressMapping[tokenId] != address(0)) {
+            require(
+                msg.sender == recoveryAddressMapping[tokenId],
+                "not the recovery address"
+            );
+        } else {
+            require(msg.sender == ERC721.ownerOf(tokenId));
+        }
 
         recoveryAddressMapping[tokenId] = newRecoveryAddress;
         _approve(newRecoveryAddress, tokenId);
