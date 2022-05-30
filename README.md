@@ -33,7 +33,7 @@ Allows the backup address that's not the NFT holder to transfer the NFT to a new
 ```function superTransfer(uint256 tokenId, address newOwner) external```
 Allows the backup address or a Superapproved addressed to transfer the backup address as well as the NFT to the new address, setting the new holder as both the NFT holder (owner) as well as the backup address for the NFT. This is used when ultimate ownership transfer is desired like during sales or transfer to new owner. Can be used interchangably as a replacement for _transferFrom with super authorisation.
 
-```**function superApprove(uint256 tokenId, address to) external **```
+```function superApprove(uint256 tokenId, address to) external```
 Allows the backup address to Superapprove a address to transfer the backup address as well as the NFT to athe new address, setting the new holder as both the NFT holder (owner) as well as the backup address for the NFT. This is used when ultimate ownership transfer is desired like during sales or transfer to new owners. 
 
 ## Rationale
