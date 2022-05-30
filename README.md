@@ -4,7 +4,7 @@ An update to implement backup / cold wallet addresses to recover NFTs using spec
 This is a simple implementation for a specified address to be able to transfer an NFT without actually holding or owning the NFT. This allows for users who have been hacked, phished or otherwise scammed / lost their NFT / lost access to their wallet to be able to get their assets back using a secure backup address.
 
 
-Note marketplaces like OpenSea will need to be aware for this standard and use superTransfer / superApprove, as otherwise the seller could just take the NFT back after a sale.
+Note marketplaces like OpenSea will need to be aware for this standard and use superTransfer / superApprove, as otherwise the seller could just take the NFT back after a sale. Alternatively they may check that the ```recoveryAddress[tokenID] == address(0)```, as if the address is set to 0x0, the ultimate authority comes down to the actual NFT holder as is currently the case, who then can change the backup address. This can be a simple front end check to not reequire contract upagrades or a helper contract to prevent mempool based attacks.
 
 
 **Not audited. Not reviewed. Accept no liability use at own risk.**
@@ -42,7 +42,7 @@ The holder and the backup address have been seperated to allow hot wallets to ho
 For all other purposes as long as pepople are aware that they need to check and change the backup address when ultimate ownership transfer is desired then all other use cases should not be impacted by the new safety features.  
 
 ## Backwards Compatibility
-Note marketplaces like OpenSea will need to be aware for this standard and use superTransfer / superApprove, as otherwise the seller could just take the NFT back after a sale. AlLternatively they may check that the ```recoveryAddress[tokenID] == address(0)```, as if the address is set to 0x0, the ultimate authority comes down to the actual NFT holder as is currently the case, who then can change the backup address. This can be a simple front end check to not reequire contract upagrades.
+Note marketplaces like OpenSea will need to be aware for this standard and use superTransfer / superApprove, as otherwise the seller could just take the NFT back after a sale. Alternatively they may check that the ```recoveryAddress[tokenID] == address(0)```, as if the address is set to 0x0, the ultimate authority comes down to the actual NFT holder as is currently the case, who then can change the backup address. This can be a simple front end check to not reequire contract upagrades.
 
 For all other purposes as long as pepople are aware that they need to check and change the backup address when ultimate ownership transfer is desired then all other use cases should not be impacted by the new safety features.  
 
